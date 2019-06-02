@@ -20,8 +20,4 @@ public class TeacherServiceImplement implements TeacherService{
         return teacherRepository.findAll();
     }
 
-    @Override
-    public void addSchool() {
-
-    }
 }

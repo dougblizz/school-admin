@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface SchoolService {
     public abstract List<School> allSchools();
+    public abstract School addSchool(School school);
+    public abstract School findContactById(int id);
 }

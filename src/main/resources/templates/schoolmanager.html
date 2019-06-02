@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>School</title>
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
@@ -38,13 +39,14 @@
                 </tr>
                 </tbody>
             </table>
-            <a href="#" >
-                <button class="btn btn-lg btn-primary btn-block" type="submit"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Add School</button>
-            </a>
-            <a href="#" th:href="@{welcome}">
-                <button class="btn btn-lg btn-primary btn-block" type="submit"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Back</button>
-            </a>
         </div>
+
+        <a href="#" th:href="@{/schools/contactform?id=0}">
+            <button class="btn btn-lg btn-primary btn-block" type="submit"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Add School</button>
+        </a>
+        <a href="#" th:href="@{/welcome}">
+            <button class="btn btn-lg btn-primary btn-block" type="submit"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Back</button>
+        </a>
 
     </div>
 
