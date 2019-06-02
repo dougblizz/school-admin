@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>welcome</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+
+    <!-- Custom styles for this template -->
+    <link href="#" th:href="@{/css/welcome.css}" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+                <h1>Hi, Administrator</h1>
+                <a class="btn btn-primary btn-lg" href="#" th:href="@{/schools}" role="button">Schools Admin</a><br><br>
+                <a class="btn btn-primary btn-lg" href="#" th:href="@{/teachers}" role="button">Teachers Admin</a>
+    </div>
+</body>
+</html>
