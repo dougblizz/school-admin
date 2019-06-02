@@ -20,4 +20,15 @@ public class SchoolServiceImplement implements SchoolService {
     public List<School> allSchools() {
         return schoolRepository.findAll();
     }
+
+    @Override
+    public School addSchool(School school) {
+        School auxSchool=schoolRepository.save(school);
+        return auxSchool;
+    }
+
+    @Override
+    public School findContactById(int id) {
+        return schoolRepository.findById(id);
+    }
 }

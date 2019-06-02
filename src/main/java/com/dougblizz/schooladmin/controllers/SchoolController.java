@@ -9,9 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -24,24 +22,34 @@ public class SchoolController {
     @Qualifier("schoolService")
     private SchoolService schoolService;
 
-    @GetMapping
+    @GetMapping("/all")
     public ModelAndView showSchools(){
         ModelAndView mav=new ModelAndView(ViewConstant.SCHOOL_VIEW);
         mav.addObject("schools",schoolService.allSchools());
         return mav;
     }
 
-    @GetMapping("/add")
-    public String addSchools(@ModelAttribute(name="contactModel")School school,
-                                   Model model){
+    @GetMapping("/cancel")
+    public String cancel(){
+        return "redirect:/schools/all";
+    }
+
+    @GetMapping("/contactform")
+    private String redirectContactForm(@RequestParam(name="id", required = false) int id,
+                                       Model model){
+        School school=new School();
+        if (id!=0){
+            school=schoolService.findContactById(id);
+        }
+        model.addAttribute("school",school);
+        return ViewConstant.CONTACTFORM_VIEW;
+    }
+
+    @PostMapping("/add")
+    public String addSchools(@ModelAttribute(name="school")School school){
         LOG.info("METHOD: addContact() -- PARAMs: error="+school.toString());
+        schoolService.addSchool(school);
 
-        /*if (schoolService.addContact(school) != null){
-            model.addAttribute("result",1);
-        }else{
-            model.addAttribute("result",0);
-        }*/
-
-        return "redirect:/schools";
+        return "redirect:/schools/all";
     }
 }
