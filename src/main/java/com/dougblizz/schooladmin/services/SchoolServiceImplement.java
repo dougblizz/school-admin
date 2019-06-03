@@ -28,7 +28,15 @@ public class SchoolServiceImplement implements SchoolService {
     }
 
     @Override
-    public School findContactById(int id) {
+    public School findContactById(long id) {
         return schoolRepository.findById(id);
+    }
+
+    @Override
+    public void deleteSchool(long id) {
+        School school=findContactById(id);
+        if (school!=null){
+            schoolRepository.delete(school);
+        }
     }
 }
