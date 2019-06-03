@@ -35,7 +35,7 @@ public class SchoolController {
     }
 
     @GetMapping("/contactform")
-    private String redirectContactForm(@RequestParam(name="id", required = false) int id,
+    private String redirectContactForm(@RequestParam(name="id", required = false) long id,
                                        Model model){
         School school=new School();
         if (id!=0){
@@ -50,6 +50,12 @@ public class SchoolController {
         LOG.info("METHOD: addContact() -- PARAMs: error="+school.toString());
         schoolService.addSchool(school);
 
+        return "redirect:/schools/all";
+    }
+
+    @GetMapping("/delete")
+    public String deleteSchool(@RequestParam(name="id", required = true) long id){
+        schoolService.deleteSchool(id);
         return "redirect:/schools/all";
     }
 }
