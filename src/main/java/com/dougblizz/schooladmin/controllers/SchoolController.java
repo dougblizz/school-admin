@@ -34,7 +34,7 @@ public class SchoolController {
         return "redirect:/schools/all";
     }
 
-    @GetMapping("/contactform")
+    @GetMapping("/schoolform")
     private String redirectContactForm(@RequestParam(name="id", required = false) long id,
                                        Model model){
         School school=new School();
