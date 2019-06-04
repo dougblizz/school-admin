@@ -6,7 +6,7 @@ import java.sql.Date;
 @Entity
 @Table(name="teacher")
 public class Teacher {
-    private long id;
+    private Long id;
     private String name;
     private Date birth;
     private boolean active;
@@ -27,11 +27,11 @@ public class Teacher {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id", unique = true, nullable = false)
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -78,5 +78,17 @@ public class Teacher {
 
     public void setCourse(Course course) {
         this.course = course;
+    }
+
+    @Override
+    public String toString() {
+        return "Teacher{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", birth=" + birth +
+                ", active=" + active +
+                ", school=" + school +
+                ", course=" + course +
+                '}';
     }
 }

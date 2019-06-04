@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Entity
 @Table(name="course")
 public class Course {
-    private long id;
+    private Long id;
     private String name;
 
     public Course() {
@@ -18,11 +18,11 @@ public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id",unique = true,nullable = false)
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -33,5 +33,13 @@ public class Course {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Course{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

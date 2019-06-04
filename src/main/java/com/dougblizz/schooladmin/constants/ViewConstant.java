@@ -5,4 +5,5 @@ public class ViewConstant {
     public static final String WELCOME_VIEW="welcome";
     public static final String TEACHER_VIEW="teachermanager";
     public static final String CONTACTFORM_VIEW="schoolcontact";
+    public static final String TEACHER_CONTACT_VIEW="teachercontact";
 }

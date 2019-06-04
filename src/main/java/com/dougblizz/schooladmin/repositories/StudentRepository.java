@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 import java.io.Serializable;
 
 @Repository("studentRepository")
-public interface StudentRepository extends JpaRepository <Student, Serializable>  {
+public interface StudentRepository extends JpaRepository <Student, Long>  {
 }

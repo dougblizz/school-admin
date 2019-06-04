@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Entity
 @Table(name="inscription")
 public class Inscription {
-    private long id;
+    private Long id;
     private Student student;
     private Course course;
     private Grade grade;
@@ -22,7 +22,7 @@ public class Inscription {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id", unique = true,nullable = false)
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
