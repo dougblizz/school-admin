@@ -30,5 +30,11 @@ public class TeacherServiceImplement implements TeacherService{
         return teacherRepository.findAll();
     }
 
-
+    @Override
+    public void deleteTeacher(Long id) {
+        Teacher teacher = findTeacherById(id);
+        if (teacher != null) {
+            teacherRepository.delete(teacher);
+        }
+    }
 }

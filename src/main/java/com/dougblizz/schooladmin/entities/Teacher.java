@@ -62,7 +62,7 @@ public class Teacher {
         this.active = active;
     }
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
     public School getSchool() {
         return school;
     }
@@ -71,7 +71,7 @@ public class Teacher {
         this.school = school;
     }
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
     public Course getCourse() {
         return course;
     }

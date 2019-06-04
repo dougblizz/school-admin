@@ -27,13 +27,13 @@ public class SchoolServiceImplement implements SchoolService {
     }
 
     @Override
-    public School findContactById(Long id) {
+    public School findSchoolById(Long id) {
         return schoolRepository.findById(id).get();
     }
 
     @Override
     public void deleteSchool(Long id) {
-        School school = findContactById(id);
+        School school = findSchoolById(id);
         if (school != null) {
             schoolRepository.delete(school);
         }
