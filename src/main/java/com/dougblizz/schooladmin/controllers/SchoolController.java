@@ -35,20 +35,25 @@ public class SchoolController {
     }
 
     @GetMapping("/schoolform")
-    private String redirectContactForm(@RequestParam(name="id", required = false) long id,
+    private String redirectSchooltForm(@RequestParam(name="id", required = false) long id,
                                        Model model){
         School school=new School();
         if (id!=0){
-            school=schoolService.findContactById(id);
+            school=schoolService.findSchoolById(id);
         }
         model.addAttribute("school",school);
-        return ViewConstant.CONTACTFORM_VIEW;
+        return ViewConstant.SCHOOL_CONTACT_VIEW;
     }
 
     @PostMapping("/add")
-    public String addSchools(@ModelAttribute(name="school")School school){
+    public String addSchools(@ModelAttribute(name="school")School school,
+                             Model model){
         LOG.info("METHOD: addContact() -- PARAMs: error="+school.toString());
-        schoolService.addSchool(school);
+        if (schoolService.addSchool(school) != null){
+            model.addAttribute("result",1);
+        }else{
+            model.addAttribute("result",0);
+        }
 
         return "redirect:/schools/all";
     }

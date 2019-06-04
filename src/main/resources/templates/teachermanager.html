@@ -37,23 +37,27 @@
                 <td th:text="${teacher.school.name}"></td>
                 <td th:text="${teacher.course.name}"></td>
                 <td>
-                    <a href="#" >
+                    <a href="#" th:href="@{/teachers/teacherform?id=__${teacher.id}__}">
                         <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>
                     </a>
-                    <a href="#" >
+                    <a href="#" th:href="@{/teachers/delete?id=__${teacher.id}__}">
                         <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
                     </a>
                 </td>
             </tr>
             </tbody>
         </table>
-        <a href="#" th:href="@{/teachers/teacherform?id=0}">
-            <button class="btn btn-lg btn-primary btn-block" type="submit"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Add Teacher</button>
-        </a>
-        <a href="#" th:href="@{/welcome}">
-            <button class="btn btn-lg btn-primary btn-block" type="submit"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Back</button>
-        </a>
     </div>
+
+    <div th:if="${result == 1}" class="alert alert-success" role="alert">Added successfully!</div>
+    <div th:if="${result == 0}" class="alert alert-danger" role="alert">Error adding contact</div>
+
+    <a href="#" th:href="@{/teachers/teacherform?id=0}">
+        <button class="btn btn-lg btn-primary btn-block" type="submit"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Add Teacher</button>
+    </a>
+    <a href="#" th:href="@{/welcome}">
+        <button class="btn btn-lg btn-primary btn-block" type="submit"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Back</button>
+    </a>
 
 </div>
 

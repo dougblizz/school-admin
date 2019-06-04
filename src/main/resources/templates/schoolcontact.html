@@ -19,9 +19,12 @@
         <br/>
         <form action="#" th:action="@{/schools/add}" th:object="${school}" method="POST">
             <input type="hidden" th:field="*{id}" ></input>
-            Name: <input type="text" class="form-control" th:field="*{name}" th:value="${name}"></input>
+            Name: <input type="text" class="form-control" placeholder="Nombre del colegio"
+                         minlength="5" maxlength="40" required pattern="[A-Za-z ]+" th:field="*{name}" th:value="${name}"></input>
             <br/>
-            Address: <input type="text" class="form-control" th:field="*{address}" th:value="${address}"></input>
+            <br/>
+            Address: <input type="text" class="form-control" placeholder="Direccion del colegio"
+                            minlength="5" maxlength="40" required pattern="[A-Za-z0-9, ]+" th:field="*{address}" th:value="${address}"></input>
             <br/>
             <br/>
             <button class="btn btn-lg btn-primary btn-block" type="submit">

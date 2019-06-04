@@ -58,13 +58,27 @@ public class TeacherController {
     }
 
     @PostMapping("/add")
-    public String addSchools(@ModelAttribute(name="teacher") Teacher teacher) {
+    public String addSchools(@ModelAttribute(name="teacher") Teacher teacher,
+                             Model model) {
         LOG.info("METHOD: addContact() -- PARAMs: error=" + teacher.toString());
-        teacherService.addTeacher(teacher);
+        if (teacherService.addTeacher(teacher) != null){
+            model.addAttribute("result",1);
+        }else{
+            model.addAttribute("result",0);
+        }
 
         return "redirect:/teachers/all";
     }
 
+    @GetMapping("/delete")
+    public String deleteTeacher(@RequestParam(name="id", required = true) Long id){
+        teacherService.deleteTeacher(id);
+        return "redirect:/teachers/all";
+    }
 
+    @GetMapping("/cancel")
+    public String cancel(){
+        return "redirect:/teachers/all";
+    }
 
 }

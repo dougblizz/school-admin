@@ -13,4 +13,6 @@ public interface TeacherService {
 
     public abstract Teacher addTeacher(Teacher teacher);
 
+    public abstract void deleteTeacher(Long id);
+
 }

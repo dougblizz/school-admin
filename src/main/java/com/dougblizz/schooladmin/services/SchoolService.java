@@ -9,7 +9,7 @@ public interface SchoolService {
 
     public abstract School addSchool(School school);
 
-    public abstract School findContactById(Long id);
+    public abstract School findSchoolById(Long id);
 
     public abstract void deleteSchool(Long id);
 }
