@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 import java.io.Serializable;
 
 @Repository("gradeRepository")
-public interface GradeRepository extends JpaRepository<Grade, Serializable> {
+public interface GradeRepository extends JpaRepository<Grade, Long> {
 }

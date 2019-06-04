@@ -6,7 +6,7 @@ import javax.persistence.*;
 @Table(name = "school")
 public class School {
 
-    private long id;
+    private Long id;
     private String name;
     private String address;
 
@@ -21,11 +21,11 @@ public class School {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id", unique = true, nullable = false)
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

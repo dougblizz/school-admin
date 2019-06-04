@@ -16,8 +16,19 @@ public class TeacherServiceImplement implements TeacherService{
     private TeacherRepository teacherRepository;
 
     @Override
+    public Teacher findTeacherById(Long id) {
+        return teacherRepository.findById(id).get();
+    }
+
+    @Override
+    public Teacher addTeacher(Teacher teacher) {
+        return teacherRepository.save(teacher);
+    }
+
+    @Override
     public List<Teacher> allTeachers() {
         return teacherRepository.findAll();
     }
+
 
 }
